@@ -179,7 +179,7 @@ export function HeroGeosphere() {
         const bp = m.userData.basePos as THREE.Vector3;
         const phase = m.userData.phase as number;
         m.position.copy(bp).multiplyScalar(1 + Math.sin(t * 1.5 + phase) * 0.03);
-        m.material.opacity = 0.6 + Math.sin(t * 2 + phase) * 0.25;
+        (m.material as THREE.MeshBasicMaterial).opacity = 0.6 + Math.sin(t * 2 + phase) * 0.25;
       });
 
       // Parallax camera
