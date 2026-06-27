@@ -115,7 +115,6 @@ export function Hero() {
             <span className="block text-2xl md:text-3xl text-white/70 font-light mb-2">Hi, I'm</span>
             <span className="block text-5xl md:text-7xl xl:text-8xl text-gradient-primary">Kirubanandhan</span>
             <span className="block text-2xl md:text-4xl mt-3 text-white/90">
-              I build{" "}
               <span ref={typedEl} className="text-gradient" />
             </span>
           </h1>
@@ -157,25 +156,8 @@ export function Hero() {
         {/* 3D Scene */}
         <div data-hero-anim className="relative h-[420px] md:h-[560px] lg:h-[640px]">
           <div className="absolute inset-0 rounded-3xl glass overflow-hidden">
-            <HeroCrystal />
+            <HeroGeosphere />
           </div>
-          {/* Floating tech badges */}
-          {[
-            { l: "React", t: "10%", x: "5%" },
-            { l: "Node.js", t: "20%", x: "85%" },
-            { l: "AWS", t: "55%", x: "0%" },
-            { l: "Docker", t: "70%", x: "90%" },
-            { l: "MongoDB", t: "88%", x: "20%" },
-            { l: "Supabase", t: "5%", x: "55%" },
-          ].map((b, i) => (
-            <span
-              key={b.l}
-              className="absolute glass px-3 py-1.5 rounded-full text-xs font-mono text-white/80 animate-float"
-              style={{ top: b.t, left: b.x, animationDelay: `${i * 0.4}s`, transform: "translate(-50%,-50%)" }}
-            >
-              {b.l}
-            </span>
-          ))}
         </div>
       </div>
 
