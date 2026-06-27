@@ -5,7 +5,7 @@ import VanillaTilt from "vanilla-tilt";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
-import { HeroCrystal } from "./HeroCrystal";
+import { HeroGeosphere } from "./HeroGeosphere";
 
 gsap.registerPlugin(ScrollTrigger);
 
