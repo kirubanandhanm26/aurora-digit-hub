@@ -637,7 +637,7 @@ export function Footer() {
                 { Icon: Github, href: CONTACT.github },
                 { Icon: Linkedin, href: CONTACT.linkedin },
                 { Icon: Mail, href: `mailto:${CONTACT.email}` },
-                { Icon: Instagram, href: CONTACT.instagram },
+                
               ].map(({ Icon, href }, i) => (
                 <a key={i} href={href} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-xl glass flex items-center justify-center text-white/70 hover:text-cyan-300 hover:-translate-y-1 transition-all">
                   <Icon className="w-4 h-4" />
