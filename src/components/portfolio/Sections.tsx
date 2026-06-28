@@ -12,6 +12,7 @@ import projTasks from "@/assets/project-tasks.jpg";
 import projWeather from "@/assets/project-weather.jpg";
 import projExpense from "@/assets/project-expense.jpg";
 import projCloud from "@/assets/project-cloud.jpg";
+import aboutPortrait from "@/assets/about-portrait.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -206,9 +207,21 @@ export function About() {
           <div className="lg:col-span-4" data-reveal>
             <div className="tilt-card relative rounded-3xl p-1 bg-[var(--gradient-primary)] animate-gradient">
               <div className="rounded-3xl glass-strong p-8 h-full">
-                <div className="aspect-square rounded-2xl bg-[radial-gradient(circle_at_30%_20%,rgba(0,245,255,0.4),transparent_60%),radial-gradient(circle_at_70%_80%,rgba(255,78,205,0.4),transparent_60%)] flex items-center justify-center font-display text-7xl font-bold relative overflow-hidden">
-                  <span className="text-gradient-primary">KM</span>
-                  <div className="absolute inset-0 noise" />
+                <div className="aspect-square rounded-2xl relative overflow-hidden bg-[radial-gradient(circle_at_30%_20%,rgba(0,245,255,0.25),transparent_60%),radial-gradient(circle_at_70%_80%,rgba(255,78,205,0.25),transparent_60%)]">
+                  <img
+                    src={aboutPortrait}
+                    alt="Portrait of Kirubanandhan, full-stack developer"
+                    width={896}
+                    height={1152}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                    <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-white/70">CS · 2029</span>
+                    <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-cyan-300">SNSCT</span>
+                  </div>
+                  <div className="absolute inset-0 noise pointer-events-none" />
                 </div>
                 <div className="mt-6 space-y-2">
                   <div className="font-display text-xl font-semibold">Kirubanandhan</div>
