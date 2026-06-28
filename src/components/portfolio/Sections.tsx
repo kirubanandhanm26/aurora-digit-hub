@@ -1,11 +1,17 @@
 import { useEffect, useRef, useState } from "react";
-import { Github, Linkedin, Mail, Instagram, Download, ArrowRight, MapPin, Phone, Send, ExternalLink, Code2, Cloud, Cpu, Sparkles, ChevronUp, Menu, X } from "lucide-react";
+import { Github, Linkedin, Mail, Download, ArrowRight, MapPin, Phone, Send, ExternalLink, Code2, Cloud, Cpu, Sparkles, ChevronUp, Menu, X, GraduationCap, Briefcase, Award, Layers } from "lucide-react";
 import Typed from "typed.js";
 import VanillaTilt from "vanilla-tilt";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { HeroGeosphere } from "./HeroGeosphere";
+import projResumeAi from "@/assets/project-resume-ai.jpg";
+import projPortfolio from "@/assets/project-portfolio.jpg";
+import projTasks from "@/assets/project-tasks.jpg";
+import projWeather from "@/assets/project-weather.jpg";
+import projExpense from "@/assets/project-expense.jpg";
+import projCloud from "@/assets/project-cloud.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,7 +21,6 @@ const CONTACT = {
   location: "Coimbatore, Tamil Nadu, India",
   linkedin: "https://www.linkedin.com/in/kirubanandhan-murugesan",
   github: "https://github.com/",
-  instagram: "https://instagram.com/",
   resume: "https://drive.google.com/file/d/178fVH0gFxqpwQwjg6NKnxUoyu1FyJB4K/view?usp=sharing",
 };
 
@@ -101,7 +106,6 @@ export function Hero() {
     { Icon: Github, href: CONTACT.github, label: "GitHub" },
     { Icon: Linkedin, href: CONTACT.linkedin, label: "LinkedIn" },
     { Icon: Mail, href: `mailto:${CONTACT.email}`, label: "Email" },
-    { Icon: Instagram, href: CONTACT.instagram, label: "Instagram" },
   ];
 
   return (
@@ -207,7 +211,7 @@ export function About() {
                   <div className="absolute inset-0 noise" />
                 </div>
                 <div className="mt-6 space-y-2">
-                  <div className="font-display text-xl font-semibold">Kirubanandhan Murugesan</div>
+                  <div className="font-display text-xl font-semibold">Kirubanandhan</div>
                   <div className="text-sm text-white/60">Full Stack Developer · Cloud & AI</div>
                   <div className="flex flex-wrap gap-2 pt-2">
                     {["React", "Node", "AWS", "AI"].map((t) => (
@@ -325,12 +329,12 @@ export function Projects() {
   }, []);
 
   const projects = [
-    { t: "AI Resume Analyzer", d: "Upload a resume → get instant AI-driven feedback, ATS score & tailored suggestions.", tech: ["React", "Node", "OpenAI", "Tailwind"], grad: "from-cyan-500/40 to-fuchsia-500/40" },
-    { t: "Portfolio Website", d: "This very site — Three.js crystal, GSAP timelines, glassmorphism & Lenis smooth scroll.", tech: ["React", "Three.js", "GSAP", "Tailwind"], grad: "from-violet-500/40 to-cyan-500/40" },
-    { t: "Task Manager", d: "Realtime kanban with drag-and-drop, auth, and team collaboration.", tech: ["React", "Supabase", "Zustand"], grad: "from-fuchsia-500/40 to-violet-500/40" },
-    { t: "Weather App", d: "Beautiful weather UI with hourly forecasts and geolocation.", tech: ["React", "OpenWeather"], grad: "from-cyan-500/40 to-violet-500/40" },
-    { t: "Expense Tracker", d: "Track spending, categorize transactions and visualize trends.", tech: ["React", "Node", "MongoDB"], grad: "from-fuchsia-500/40 to-cyan-500/40" },
-    { t: "Cloud Dashboard", d: "Infra monitoring dashboard built on AWS metrics & serverless functions.", tech: ["React", "AWS", "Lambda"], grad: "from-violet-500/40 to-fuchsia-500/40" },
+    { t: "AI Resume Analyzer", d: "Upload a resume → get instant AI-driven feedback, ATS score & tailored suggestions.", tech: ["React", "Node", "OpenAI", "Tailwind"], img: projResumeAi, live: "https://ai-resume-analyzer-demo.vercel.app", code: CONTACT.github },
+    { t: "Portfolio Website", d: "This very site — Three.js geosphere, GSAP timelines, glassmorphism & Lenis smooth scroll.", tech: ["React", "Three.js", "GSAP", "Tailwind"], img: projPortfolio, live: "#home", code: CONTACT.github },
+    { t: "Task Manager", d: "Realtime kanban with drag-and-drop, auth, and team collaboration.", tech: ["React", "Supabase", "Zustand"], img: projTasks, live: "https://taskflow-demo.vercel.app", code: CONTACT.github },
+    { t: "Weather App", d: "Beautiful weather UI with hourly forecasts and geolocation.", tech: ["React", "OpenWeather"], img: projWeather, live: "https://weather-glance.vercel.app", code: CONTACT.github },
+    { t: "Expense Tracker", d: "Track spending, categorize transactions and visualize trends.", tech: ["React", "Node", "MongoDB"], img: projExpense, live: "https://expense-trace.vercel.app", code: CONTACT.github },
+    { t: "Cloud Dashboard", d: "Infra monitoring dashboard built on AWS metrics & serverless functions.", tech: ["React", "AWS", "Lambda"], img: projCloud, live: "https://cloud-pulse.vercel.app", code: CONTACT.github },
   ];
 
   return (
@@ -340,14 +344,10 @@ export function Projects() {
         <div ref={ref} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((p) => (
             <article key={p.t} data-tilt-card data-reveal className="tilt-card relative rounded-3xl overflow-hidden glass group">
-              <div className={`relative aspect-[16/10] bg-gradient-to-br ${p.grad} overflow-hidden`}>
-                <div className="absolute inset-0 noise" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-20 h-20 rounded-2xl glass-strong flex items-center justify-center font-display text-2xl font-bold text-gradient-primary group-hover:scale-110 transition-transform">
-                    {p.t.split(" ").map((w) => w[0]).join("").slice(0, 2)}
-                  </div>
-                </div>
-                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#050816] to-transparent" />
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <img src={p.img} alt={p.t} loading="lazy" width={1024} height={640}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/40 to-transparent" />
               </div>
               <div className="p-6 space-y-3">
                 <h3 className="font-display text-xl font-semibold">{p.t}</h3>
@@ -358,10 +358,10 @@ export function Projects() {
                   ))}
                 </div>
                 <div className="flex gap-3 pt-2">
-                  <a href={CONTACT.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-cyan-300 transition-colors">
+                  <a href={p.code} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-cyan-300 transition-colors">
                     <Github className="w-4 h-4" /> Code
                   </a>
-                  <a href="#" className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-fuchsia-300 transition-colors">
+                  <a href={p.live} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-fuchsia-300 transition-colors">
                     <ExternalLink className="w-4 h-4" /> Live
                   </a>
                 </div>
@@ -377,61 +377,116 @@ export function Projects() {
 
 export function Resume() {
   const stats = [
-    { v: "10+", l: "Projects" },
-    { v: "5+", l: "Tech Stacks" },
-    { v: "2", l: "Internships" },
-    { v: "∞", l: "Curiosity" },
+    { v: "10+", l: "Projects", Icon: Layers },
+    { v: "5+", l: "Tech Stacks", Icon: Code2 },
+    { v: "2", l: "Internships", Icon: Briefcase },
+    { v: "∞", l: "Curiosity", Icon: Sparkles },
+  ];
+  const experience = [
+    { y: "2024", t: "Web Developer Intern", c: "Cognifyz Technologies", Icon: Briefcase, color: "#00F5FF" },
+    { y: "2024", t: "UX Designer", c: "Syntex Hub", Icon: Sparkles, color: "#FF4ECD" },
+    { y: "2025–29", t: "B.E. Computer Science", c: "SNS College of Technology", Icon: GraduationCap, color: "#7B2FF7" },
+  ];
+  const highlights = [
+    "Full-stack web apps with React, Node & TypeScript",
+    "Cloud-native deployments on AWS & Supabase",
+    "AI-powered features using OpenAI & vector search",
+    "Pixel-precise UI with Tailwind, GSAP & Three.js",
   ];
   return (
     <section id="resume" className="relative py-28 px-6">
       <div className="container mx-auto">
-        <SectionHeader eyebrow="Resume" title="Grab the full story" sub="A one-page snapshot of skills, projects and experience." />
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
-          <div className="relative" data-reveal>
-            <div className="tilt-card relative aspect-[3/4] max-w-sm mx-auto rounded-3xl glass-strong p-6 overflow-hidden">
-              {/* fake resume preview */}
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-fuchsia-500/10" />
-              <div className="relative h-full flex flex-col">
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <div className="font-display font-bold text-lg">Kirubanandhan M</div>
-                    <div className="text-xs text-white/60">Full Stack Developer</div>
-                  </div>
-                  <div className="w-10 h-10 rounded-lg bg-[var(--gradient-primary)] flex items-center justify-center text-[#050816] font-bold">K</div>
-                </div>
-                <div className="space-y-2">
-                  {Array.from({ length: 12 }).map((_, i) => (
-                    <div key={i} className="h-1.5 rounded-full bg-white/10" style={{ width: `${60 + Math.random() * 35}%` }} />
-                  ))}
-                </div>
-                <div className="mt-auto flex gap-2">
-                  <div className="h-8 flex-1 rounded-lg bg-cyan-500/20" />
-                  <div className="h-8 flex-1 rounded-lg bg-fuchsia-500/20" />
-                </div>
-              </div>
-              <div className="tilt-glow" />
+        <SectionHeader eyebrow="Resume" title="The full story" sub="Experience, highlights and the one-page PDF — all in one place." />
+
+        {/* Stat strip */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10" data-reveal>
+          {stats.map(({ v, l, Icon }) => (
+            <div key={l} className="relative glass rounded-2xl p-5 overflow-hidden group hover:-translate-y-1 transition-transform">
+              <Icon className="absolute -right-3 -bottom-3 w-16 h-16 text-white/5 group-hover:text-cyan-400/10 transition-colors" />
+              <div className="font-display text-3xl font-bold text-gradient-primary">{v}</div>
+              <div className="text-xs uppercase tracking-wider text-white/50 mt-1">{l}</div>
             </div>
-            {/* particles */}
-            {Array.from({ length: 12 }).map((_, i) => (
-              <span key={i} className="absolute w-1 h-1 rounded-full bg-cyan-300 animate-float"
-                style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%`, animationDelay: `${i * 0.3}s`, boxShadow: "0 0 8px #00F5FF" }} />
-            ))}
-          </div>
-          <div className="space-y-8" data-reveal>
-            <div className="grid grid-cols-2 gap-4">
-              {stats.map((s) => (
-                <div key={s.l} className="glass rounded-2xl p-5 text-center">
-                  <div className="font-display text-3xl font-bold text-gradient-primary">{s.v}</div>
-                  <div className="text-xs uppercase tracking-wider text-white/50 mt-1">{s.l}</div>
+          ))}
+        </div>
+
+        <div className="grid lg:grid-cols-5 gap-8">
+          {/* Experience timeline */}
+          <div className="lg:col-span-3 glass-strong rounded-3xl p-8" data-reveal>
+            <div className="flex items-center gap-3 mb-6">
+              <Award className="w-5 h-5 text-cyan-300" />
+              <h3 className="font-display text-xl font-semibold">Journey so far</h3>
+            </div>
+            <div className="space-y-5">
+              {experience.map((e) => (
+                <div key={e.t} className="flex gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-cyan-400/30 transition-colors">
+                  <div className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center"
+                    style={{ background: `${e.color}20`, border: `1px solid ${e.color}40`, boxShadow: `0 0 20px ${e.color}30` }}>
+                    <e.Icon className="w-5 h-5" style={{ color: e.color }} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-baseline justify-between gap-2">
+                      <div className="font-display font-semibold">{e.t}</div>
+                      <div className="text-xs font-mono text-white/50">{e.y}</div>
+                    </div>
+                    <div className="text-sm text-white/60 mt-0.5">{e.c}</div>
+                  </div>
                 </div>
               ))}
             </div>
-            <p className="text-white/70 leading-relaxed">
-              Want the deep dive? Download my latest resume — packed with projects, internships, the stack I work with, and what I'm exploring next.
-            </p>
-            <a href={CONTACT.resume} target="_blank" rel="noreferrer" className="btn-glow inline-flex items-center gap-2">
-              <Download className="w-4 h-4" /> Download Resume (PDF)
-            </a>
+
+            <div className="mt-7 pt-6 border-t border-white/10">
+              <div className="text-xs uppercase tracking-[0.25em] text-white/40 mb-3">Highlights</div>
+              <ul className="grid sm:grid-cols-2 gap-2">
+                {highlights.map((h) => (
+                  <li key={h} className="flex items-start gap-2 text-sm text-white/70">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-300 shadow-[0_0_8px_#00F5FF] shrink-0" />
+                    {h}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Download card */}
+          <div className="lg:col-span-2" data-reveal>
+            <div className="relative h-full rounded-3xl p-[1px] bg-[var(--gradient-primary)] animate-gradient">
+              <div className="relative h-full glass-strong rounded-3xl p-8 flex flex-col overflow-hidden">
+                <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-cyan-500/20 blur-3xl" />
+                <div className="absolute -bottom-16 -left-16 w-48 h-48 rounded-full bg-fuchsia-500/20 blur-3xl" />
+
+                <div className="relative">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-[10px] font-mono uppercase tracking-wider text-cyan-300 border border-cyan-400/30">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-300 animate-pulse" /> PDF · Updated 2026
+                  </div>
+                  <h3 className="font-display text-2xl font-bold mt-4">Grab the resume</h3>
+                  <p className="text-sm text-white/60 mt-2 leading-relaxed">
+                    One page. Every project, internship, and stack I work with — designed to be skimmed in 60 seconds.
+                  </p>
+                </div>
+
+                <div className="relative mt-6 grid grid-cols-3 gap-2">
+                  {[
+                    { l: "Skills", v: "15+" },
+                    { l: "Projects", v: "10+" },
+                    { l: "Years", v: "1.5" },
+                  ].map((s) => (
+                    <div key={s.l} className="rounded-xl bg-white/5 px-3 py-2.5 text-center">
+                      <div className="font-display text-lg font-bold text-white">{s.v}</div>
+                      <div className="text-[10px] uppercase tracking-wider text-white/40">{s.l}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="relative mt-auto pt-6 flex flex-col gap-3">
+                  <a href={CONTACT.resume} target="_blank" rel="noreferrer" className="btn-glow inline-flex items-center justify-center gap-2">
+                    <Download className="w-4 h-4" /> Download PDF
+                  </a>
+                  <a href={CONTACT.resume} target="_blank" rel="noreferrer" className="btn-outline-glow inline-flex items-center justify-center gap-2 text-sm">
+                    <ExternalLink className="w-4 h-4" /> View Online
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -582,7 +637,7 @@ export function Footer() {
                 { Icon: Github, href: CONTACT.github },
                 { Icon: Linkedin, href: CONTACT.linkedin },
                 { Icon: Mail, href: `mailto:${CONTACT.email}` },
-                { Icon: Instagram, href: CONTACT.instagram },
+                
               ].map(({ Icon, href }, i) => (
                 <a key={i} href={href} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-xl glass flex items-center justify-center text-white/70 hover:text-cyan-300 hover:-translate-y-1 transition-all">
                   <Icon className="w-4 h-4" />
