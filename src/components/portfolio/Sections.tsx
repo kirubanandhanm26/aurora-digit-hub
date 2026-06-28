@@ -1,11 +1,17 @@
 import { useEffect, useRef, useState } from "react";
-import { Github, Linkedin, Mail, Instagram, Download, ArrowRight, MapPin, Phone, Send, ExternalLink, Code2, Cloud, Cpu, Sparkles, ChevronUp, Menu, X } from "lucide-react";
+import { Github, Linkedin, Mail, Download, ArrowRight, MapPin, Phone, Send, ExternalLink, Code2, Cloud, Cpu, Sparkles, ChevronUp, Menu, X, GraduationCap, Briefcase, Award, Layers } from "lucide-react";
 import Typed from "typed.js";
 import VanillaTilt from "vanilla-tilt";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { HeroGeosphere } from "./HeroGeosphere";
+import projResumeAi from "@/assets/project-resume-ai.jpg";
+import projPortfolio from "@/assets/project-portfolio.jpg";
+import projTasks from "@/assets/project-tasks.jpg";
+import projWeather from "@/assets/project-weather.jpg";
+import projExpense from "@/assets/project-expense.jpg";
+import projCloud from "@/assets/project-cloud.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,7 +21,6 @@ const CONTACT = {
   location: "Coimbatore, Tamil Nadu, India",
   linkedin: "https://www.linkedin.com/in/kirubanandhan-murugesan",
   github: "https://github.com/",
-  instagram: "https://instagram.com/",
   resume: "https://drive.google.com/file/d/178fVH0gFxqpwQwjg6NKnxUoyu1FyJB4K/view?usp=sharing",
 };
 
@@ -101,7 +106,6 @@ export function Hero() {
     { Icon: Github, href: CONTACT.github, label: "GitHub" },
     { Icon: Linkedin, href: CONTACT.linkedin, label: "LinkedIn" },
     { Icon: Mail, href: `mailto:${CONTACT.email}`, label: "Email" },
-    { Icon: Instagram, href: CONTACT.instagram, label: "Instagram" },
   ];
 
   return (
@@ -207,7 +211,7 @@ export function About() {
                   <div className="absolute inset-0 noise" />
                 </div>
                 <div className="mt-6 space-y-2">
-                  <div className="font-display text-xl font-semibold">Kirubanandhan Murugesan</div>
+                  <div className="font-display text-xl font-semibold">Kirubanandhan</div>
                   <div className="text-sm text-white/60">Full Stack Developer · Cloud & AI</div>
                   <div className="flex flex-wrap gap-2 pt-2">
                     {["React", "Node", "AWS", "AI"].map((t) => (
@@ -325,12 +329,12 @@ export function Projects() {
   }, []);
 
   const projects = [
-    { t: "AI Resume Analyzer", d: "Upload a resume → get instant AI-driven feedback, ATS score & tailored suggestions.", tech: ["React", "Node", "OpenAI", "Tailwind"], grad: "from-cyan-500/40 to-fuchsia-500/40" },
-    { t: "Portfolio Website", d: "This very site — Three.js crystal, GSAP timelines, glassmorphism & Lenis smooth scroll.", tech: ["React", "Three.js", "GSAP", "Tailwind"], grad: "from-violet-500/40 to-cyan-500/40" },
-    { t: "Task Manager", d: "Realtime kanban with drag-and-drop, auth, and team collaboration.", tech: ["React", "Supabase", "Zustand"], grad: "from-fuchsia-500/40 to-violet-500/40" },
-    { t: "Weather App", d: "Beautiful weather UI with hourly forecasts and geolocation.", tech: ["React", "OpenWeather"], grad: "from-cyan-500/40 to-violet-500/40" },
-    { t: "Expense Tracker", d: "Track spending, categorize transactions and visualize trends.", tech: ["React", "Node", "MongoDB"], grad: "from-fuchsia-500/40 to-cyan-500/40" },
-    { t: "Cloud Dashboard", d: "Infra monitoring dashboard built on AWS metrics & serverless functions.", tech: ["React", "AWS", "Lambda"], grad: "from-violet-500/40 to-fuchsia-500/40" },
+    { t: "AI Resume Analyzer", d: "Upload a resume → get instant AI-driven feedback, ATS score & tailored suggestions.", tech: ["React", "Node", "OpenAI", "Tailwind"], img: projResumeAi, live: "https://ai-resume-analyzer-demo.vercel.app", code: CONTACT.github },
+    { t: "Portfolio Website", d: "This very site — Three.js geosphere, GSAP timelines, glassmorphism & Lenis smooth scroll.", tech: ["React", "Three.js", "GSAP", "Tailwind"], img: projPortfolio, live: "#home", code: CONTACT.github },
+    { t: "Task Manager", d: "Realtime kanban with drag-and-drop, auth, and team collaboration.", tech: ["React", "Supabase", "Zustand"], img: projTasks, live: "https://taskflow-demo.vercel.app", code: CONTACT.github },
+    { t: "Weather App", d: "Beautiful weather UI with hourly forecasts and geolocation.", tech: ["React", "OpenWeather"], img: projWeather, live: "https://weather-glance.vercel.app", code: CONTACT.github },
+    { t: "Expense Tracker", d: "Track spending, categorize transactions and visualize trends.", tech: ["React", "Node", "MongoDB"], img: projExpense, live: "https://expense-trace.vercel.app", code: CONTACT.github },
+    { t: "Cloud Dashboard", d: "Infra monitoring dashboard built on AWS metrics & serverless functions.", tech: ["React", "AWS", "Lambda"], img: projCloud, live: "https://cloud-pulse.vercel.app", code: CONTACT.github },
   ];
 
   return (
