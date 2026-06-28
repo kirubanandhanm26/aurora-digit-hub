@@ -344,14 +344,10 @@ export function Projects() {
         <div ref={ref} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((p) => (
             <article key={p.t} data-tilt-card data-reveal className="tilt-card relative rounded-3xl overflow-hidden glass group">
-              <div className={`relative aspect-[16/10] bg-gradient-to-br ${p.grad} overflow-hidden`}>
-                <div className="absolute inset-0 noise" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-20 h-20 rounded-2xl glass-strong flex items-center justify-center font-display text-2xl font-bold text-gradient-primary group-hover:scale-110 transition-transform">
-                    {p.t.split(" ").map((w) => w[0]).join("").slice(0, 2)}
-                  </div>
-                </div>
-                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#050816] to-transparent" />
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <img src={p.img} alt={p.t} loading="lazy" width={1024} height={640}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050816] via-[#050816]/40 to-transparent" />
               </div>
               <div className="p-6 space-y-3">
                 <h3 className="font-display text-xl font-semibold">{p.t}</h3>
@@ -362,10 +358,10 @@ export function Projects() {
                   ))}
                 </div>
                 <div className="flex gap-3 pt-2">
-                  <a href={CONTACT.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-cyan-300 transition-colors">
+                  <a href={p.code} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-cyan-300 transition-colors">
                     <Github className="w-4 h-4" /> Code
                   </a>
-                  <a href="#" className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-fuchsia-300 transition-colors">
+                  <a href={p.live} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-fuchsia-300 transition-colors">
                     <ExternalLink className="w-4 h-4" /> Live
                   </a>
                 </div>
