@@ -12,6 +12,7 @@ import projTasks from "@/assets/project-tasks.jpg";
 import projWeather from "@/assets/project-weather.jpg";
 import projExpense from "@/assets/project-expense.jpg";
 import projCloud from "@/assets/project-cloud.jpg";
+import aboutPortrait from "@/assets/about-portrait.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
