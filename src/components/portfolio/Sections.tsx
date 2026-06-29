@@ -396,8 +396,8 @@ export function Resume() {
     { v: "∞", l: "Curiosity", Icon: Sparkles },
   ];
   const experience = [
-    { y: "2024", t: "Web Developer Intern", c: "Cognifyz Technologies", Icon: Briefcase, color: "#00F5FF" },
-    { y: "2024", t: "UX Designer", c: "Syntex Hub", Icon: Sparkles, color: "#FF4ECD" },
+    { y: "2026", t: "Web Developer Intern", c: "Cognifyz Technologies", Icon: Briefcase, color: "#00F5FF" },
+    { y: "2026", t: "UX Designer", c: "Syntex Hub", Icon: Sparkles, color: "#FF4ECD" },
     { y: "2025–29", t: "B.E. Computer Science", c: "SNS College of Technology", Icon: GraduationCap, color: "#7B2FF7" },
   ];
   const highlights = [
