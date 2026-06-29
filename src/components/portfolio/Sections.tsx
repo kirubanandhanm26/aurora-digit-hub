@@ -188,8 +188,8 @@ function SectionHeader({ eyebrow, title, sub }: { eyebrow: string; title: string
 export function About() {
   const timeline = [
     { y: "2025–2029", t: "B.E. Computer Science", d: "SNS College of Technology — building a strong CS foundation while shipping real-world projects." },
-    { y: "2024", t: "Web Developer Intern — Cognifyz", d: "Designed and developed responsive web modules and dashboards using modern JS frameworks." },
-    { y: "2024", t: "UX Designer — Syntex Hub", d: "Crafted clean, accessible interfaces focused on micro-interactions and user delight." },
+    { y: "2026", t: "Web Developer Intern — Cognifyz", d: "Designed and developed responsive web modules and dashboards using modern JS frameworks." },
+    { y: "2026", t: "UX Designer — Syntex Hub", d: "Crafted clean, accessible interfaces focused on micro-interactions and user delight." },
     { y: "Now", t: "Learning Full-Stack + AI", d: "Exploring LLM-powered apps, cloud-native architecture and production-grade React systems." },
   ];
   const interests = [
